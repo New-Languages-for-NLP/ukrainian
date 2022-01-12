@@ -7,12 +7,12 @@ description: "This project template lets you train a part-of-speech tagger, morp
 
 vars:
   config: "config.cfg"
-  lang: "yi"
-  treebank: "urban-giggle"
+  lang: "uk"
+  treebank: "ukrainian"
   test_size: 0.2
   n_sents: 10
   random_state: 11
-  package_name: "new language"
+  package_name: "Ukrainian"
   package_version: "0.0.0"
   wandb: false 
   gpu: 0
@@ -44,14 +44,7 @@ commands:
   - name: install
     help: "Install the new language object from Cadet"
     script:
-      - "rm -rf lang"
-      - "mkdir lang"
-      - "mkdir lang/${vars.lang}"
-      - "cp -r assets/${vars.treebank}/2_new_language_object/ lang/${vars.lang}/${vars.lang}" 
-      - "mv lang/${vars.lang}/${vars.lang}/setup.py lang/${vars.lang}/"
-      - "pip install -e lang/${vars.lang}"
-    deps:
-      - "assets/${vars.treebank}/2_new_language_object"
+      - "echo Spacy already has a Ukrainian language object, so will use that"
       
   - name: convert
     help: "Convert the data to spaCy's format"
